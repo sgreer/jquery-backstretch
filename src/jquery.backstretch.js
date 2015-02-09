@@ -75,6 +75,7 @@
     , centeredY: true   // Should we center the image on the Y axis?
     , duration: 5000    // Amount of time in between slides (if slideshow)
     , fade: 0           // Speed of fade transition between slides
+    , initialIndex: 0   // the initial index to be displayed
   };
 
   /* STYLES
@@ -163,7 +164,10 @@
     });
 
     // Set the first image
-    this.index = 0;
+    this.index = this.options.initialIndex;
+    if(Math.abs(this.index) > this.images.length - 1) {
+      this.index = 0;
+    }
     this.show(this.index);
 
     // Listen for resize
