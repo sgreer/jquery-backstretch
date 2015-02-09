@@ -164,9 +164,14 @@
     });
 
     // Set the first image
-    this.index = this.options.initialIndex;
-    if(Math.abs(this.index) > this.images.length - 1) {
-      this.index = 0;
+    if (typeof this.options.initialIndex === "number") {
+        this.index = this.options.initialIndex;
+        if (Math.abs(this.index) > this.images.length - 1) {
+            this.index = 0;
+        }
+    }
+    else {
+        this.index = 0;
     }
     this.show(this.index);
 
